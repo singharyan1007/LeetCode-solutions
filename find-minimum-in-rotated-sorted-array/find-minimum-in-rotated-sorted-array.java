@@ -1,32 +1,19 @@
 class Solution {
     public int findMin(int[] nums) {
-        // first find the pivot 
-        int s=0;
-        int e=nums.length-1;
-        if(nums.length==1){
-            return nums[0];
-        }
-        if(nums[s]<nums[e]){
-          return nums[s];
-        }
-        while(s<=e){
-            int mid=s+(e-s)/2;
-            if(mid<e && nums[mid]>nums[mid+1]){
-                //descending part of the array
-                return nums[mid+1];
-            }else if(s<mid && nums[mid]<nums[mid-1]){
-                return nums[mid];
+        int l=0;
+        int r=nums.length-1;
+        while(l<=r){
+            int mid=l+(r-l)/2;
+            if(nums[l]<=nums[r]){
+                return nums[l];
             }
-            if(nums[s]>nums[mid]){
-                e=mid-1;
+            if(nums[mid]>=nums[l]){
+                l=mid+1;
             }else{
-                s=mid+1;
+                r=mid;
             }
+            
         }
-        
-        return Integer.MAX_VALUE;
+        return 0;
     }
-    
-    
-   
 }
