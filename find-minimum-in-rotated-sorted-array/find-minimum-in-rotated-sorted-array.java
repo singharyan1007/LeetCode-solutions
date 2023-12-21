@@ -6,14 +6,12 @@ class Solution {
             int mid=l+(r-l)/2;
             if(nums[l]<=nums[r]){
                 return nums[l];
-            }
-            if(nums[mid]>=nums[l]){
+            }else if(nums[mid]>=nums[l]){
                 l=mid+1;
             }else{
                 r=mid;
             }
-            
         }
-        return 0;
+        return r;
     }
 }
